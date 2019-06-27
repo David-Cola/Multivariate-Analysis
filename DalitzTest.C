@@ -44,7 +44,7 @@ Bool_t DalitzTest::Process(Long64_t entry)
 {
   GetEntry(entry);
   fReader.SetEntry(entry);
-  
+  //marian: i think that all these variables can go  
   Double_t sigma;
   Double_t deltasigma;
   Double_t mu;
@@ -58,22 +58,25 @@ Bool_t DalitzTest::Process(Long64_t entry)
   Double_t totalStr;
   Double_t deltaTotalStr;
   
+      //marian: what are these loops doing?
       for (int i = 0; i < 21; i++){
       for (int j = 20; j < 51; j++){
           
           if (((*p1_MC15TuneV1_ProbNNp * *p2_MC15TuneV1_ProbNNp * *p3_MC15TuneV1_ProbNNp * *p4_MC15TuneV1_ProbNNp) >= j/50)
           &&(*B_IPCHI2_OWNPV <= i/2)){
-          
+          //marian: if i understand correctly, you want to fill 600 histograms of 
+            //B_MM for different values of ProbNNp products and IPCHI2. is this right? If yes, you need vectors
+            //What you are doing here is filling the same histogram with up to 600 times the same events
               Res->Fill(*B_MM);
           }
-          
+          //marian: this will fit your histogram 600 times for each event
           Res->Fit("FitFunc2");
           double tot = Res->GetEntries();
           double sign = FitFunc2->GetParameter(0);
           double sign2 = FitFunc2->GetParameter(2);
      
       double fom = sign / ((sqrt(tot - sign)) - (sign2 / 2));
-  
+      //marian: this is a misconception. Dalitz-plots are very special multidimensional plots relating the decay kinematics to the decay amplitude
       Dalitz->Fill(i/2, j/50, fom);
       if (j == 50){break;}
       }
@@ -83,12 +86,12 @@ Bool_t DalitzTest::Process(Long64_t entry)
    return kTRUE;
 }
 
-void DalitzTest::SlaveTerminate{}{}
+void DalitzTest::SlaveTerminate(){}//marian: changed
 
-void DalitzTest::Terminate{}
+void DalitzTest::Terminate()//marian: changed
 {
    Dalitz->Write("SURF2");
       
       File->Close();
 }
-  
+//marian: please feel free to remove all comments again
