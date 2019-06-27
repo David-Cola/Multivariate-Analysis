@@ -6,7 +6,7 @@
 #include <TH1.h>
 #include <TH3.h>
 #include <TStyle.h>
-#inclde <TCanvas.h>
+#include <TCanvas.h>
 #include <TFile.h>
 
 TF1 * FitFunc2 = nullptr;
