@@ -4,5 +4,5 @@
   
  fom = Parameter[0] / ((Total Entries - Parameter [0])^(1/2) - (Parameter[2] /2)) 
  
- Going further it's important to note some cuts concadinate with eachother i.e. * B_IPCHI2_OWNPV and p1_MC15TuneV1_ProbNNp. How do we know what cuts are best? We could go through every 20 possible cuts on IPCHI2_OWNPV and use them on all 30 possible cuts on ProbNNp which would give us 600 different 
+ Going further it's important to note some cuts concadinate with eachother i.e. * B_IPCHI2_OWNPV and p1_MC15TuneV1_ProbNNp. How do we know what cuts are best? We could go through every 20 possible cuts on IPCHI2_OWNPV and use them on all 30 possible cuts on ProbNNp which would give us 600 different plots that we would have to analyze. Or we could write a code that fits all possible combinations manually and displays colors that demonstrate how effective the fit was on each plot. This is what we attempted here.
      
