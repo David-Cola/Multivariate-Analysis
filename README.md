@@ -1,1 +1,3 @@
 # Multivariate-Analysis
+
+  The purpose of the Multivarite Analysis is to optimize the cuts on the mass of a mother particle. In this case our mother particle will be a Bottom Meson denoted * B_MM. A cut is to set a restriction on particle variables. For example ///IPCH2_OWNPV can select a distance from the particle decaying. If we know what the distance of the particle is supposed to be then we can confidently filter out most  of the readings that detector picks up as background. Each reading is known as an event, and we can filter the background events. But how do we know the best ratio? We can use a fit function built by Henry in this case labeled ///Fit2MeV2.C. 
