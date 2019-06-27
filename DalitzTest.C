@@ -1,4 +1,4 @@
-#Define DalitzTest_cxx
+#define DalitzTest_cxx
 #include "DalitzTest.h"
 
 #include "Fit2MeV.C"
